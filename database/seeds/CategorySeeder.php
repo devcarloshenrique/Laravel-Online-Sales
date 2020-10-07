@@ -14,20 +14,29 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $category = Category::create([
-            'name' => 'Imóveis',
-        ]);
 
+        factory(Category::class, 1)->create()->toArray();
 
-        $category->subCategories()->create([
-            'name' => 'Apartamento',
-            ]);
-
-
-        //  Cadastrando por meio de models
-        // SubCategory::create([
-        //     'name' => 'Apartamento',
-        //     'category_id' => '4',
+        // $category = Category::create([
+        //     'name' => 'Imóveis',
         // ]);
+
+
+        // $category->subCategories()->create([
+        //     'name' => 'Apartamento',
+        //     ]);
+
+
+         //Cadastrando por meio de models
+
+        // Category::create([
+        //     'name' => 'Teste',
+        // ]);
+
+        //  SubCategory::create([
+        //     'name' => 'Apartamento',
+        //     'category_id' => '25',
+        // ]);
+
     }
 }
