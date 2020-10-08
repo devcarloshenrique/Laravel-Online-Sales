@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['namespace' => 'API'], function(){
+
+        Route::get('listar-pais', 'ContriesController@index');
+        Route::post('insert-pais', 'ContriesController@store');
+        Route::put('update-pais/{id}', 'ContriesController@update');
+
+});
