@@ -15,7 +15,11 @@ class CategorySeeder extends Seeder
     public function run()
     {
 
-        factory(Category::class, 1)->create()->toArray();
+        factory(Category::class, 2)->create()->each(function($category){
+            factory(SubCategory::class, 5)->create([
+                'category_id' => $category->id
+            ]);
+        });
 
         // $category = Category::create([
         //     'name' => 'Imóveis',
