@@ -19,8 +19,8 @@ class ContriesController extends Controller
          * Listagem 1
          */
 
-        $country = DB::select('select *from categories');
-        return $country;
+        // $country = DB::select('select *from categories');
+        // return $country;
 
         /**
          * Listagem 2
@@ -42,6 +42,15 @@ class ContriesController extends Controller
         //         ]);
 
         // return $country;
+
+        /**
+         * Listagem 4
+         */
+
+        // $country = DB::table('categories')->get();
+
+        // return $country;
+
 
     }
 
@@ -92,6 +101,7 @@ class ContriesController extends Controller
          */
 
          //$countryUpdate = DB::update("update categories set name='".$request->input('name')."' where id=$id");
+        //  return $countryUpdate;
 
         /**
          * Update 2
@@ -101,8 +111,23 @@ class ContriesController extends Controller
         //     [$request->input('name'), $id]
         // );
 
+        // return $countryUpdate;
 
-        return $countryUpdate;
+        /**
+         * Update 3
+         */
+
+        // $countryUpdate = DB::update("update categories set name= :name where id= :id",
+        //     [
+        //         'name' => $request->input('name'),
+        //         'id' =>$id
+        //     ]
+        // );
+
+        // return $countryUpdate;
+
+
+
     }
 
     /**
@@ -113,6 +138,8 @@ class ContriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return DB::delete('delete from categories where id = :id', ['id' => $id]);
     }
+
+
 }

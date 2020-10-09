@@ -20,8 +20,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'API'], function(){
 
-        Route::get('listar-pais', 'ContriesController@index');
-        Route::post('insert-pais', 'ContriesController@store');
-        Route::put('update-pais/{id}', 'ContriesController@update');
+    Route::get('listar-pais', 'ContriesController@index');
+    Route::post('insert-pais', 'ContriesController@store');
+    Route::put('update-pais/{id}', 'ContriesController@update');
+    Route::delete('delete-pais/{id}', 'ContriesController@destroy');
+
+    Route::get('listar-relations', 'ContriesSubContriesController@index');
+    Route::post('insert-relations', 'ContriesSubContriesController@store');
+    Route::put('update-relations/{id}', 'ContriesSubContriesController@update');
+    Route::delete('delete-relations/{id}', 'ContriesSubContriesController@destroy');
+
 
 });
